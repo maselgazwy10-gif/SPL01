@@ -15,8 +15,14 @@ const char* get_var(const char *name) {
             return var_values[i];
         }
     }
+    
     char *env_val = getenv(name);
-    return env_val ? env_val : "";
+    
+    if (env_val != NULL) {
+        return env_val;
+    } else {
+        return "";
+    }
 }
 
 void set_var(const char *name, const char *value) {
